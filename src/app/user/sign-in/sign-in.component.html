@@ -1,0 +1,54 @@
+<div class="container">
+  <div class="row">
+    <div class="col col-5 offset-s3" style="padding: 30px">
+
+      <div class="card">
+        <div class="card-header card-header-danger">
+          <h4 class="card-title">Login</h4>
+          <p class="card-category">Autentica-se</p>
+        </div>
+
+        <div class="card-body">
+          <div *ngIf="isLoginError" class="red-text center error-message">
+              <i class="material-icons">error</i> Incorrect username or password
+          </div>
+          <form #loginForm="ngForm" class="col s12 white" (ngSubmit)="OnSubmit(UserName.value,Password.value)">
+            <div class="row">
+              <div class="input-field col s12 center">
+                <img src="http://nova-erp.com/images/logo-dark.png" alt="" class=" valign profile-image-login">
+              </div>
+            </div>
+            <div class="row margin">
+              <div class="input-field col s12">
+                <i class="material-icons prefix">account_circle</i>
+                <input type="text" #UserName ngModel name="UserName" placeholder="Username" required>
+                <label for="username" class="center-align">Username</label>
+              </div>
+            </div>
+            <div class="row margin">
+              <div class="input-field col s12">
+                <i class="material-icons prefix">vpn_key</i>
+                <input type="password" #Password ngModel name="Password" placeholder="Password" required>
+                <label for="password" class="">Password</label>
+              </div>
+            </div>
+            <div class="row">
+              <div class="input-field col l12">
+                <button [disabled]="!loginForm.valid" class="btn-large btn-submit" type="submit">Login</button>
+              </div>
+            </div>
+            <div class="row">
+              <div class="input-field col s6 m6 l6">
+                <p class="margin medium-small"><a href="page-register.html">Register Now!</a></p>
+              </div>
+              <div class="input-field col s6 m6 l6">
+                <p class="margin right-align medium-small"><a href="page-forgot-password.html">Forgot password ?</a></p>
+              </div>
+            </div>
+
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,72 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header card-header-danger">
+                        <h4 class="card-title">Registar Nova Turma</h4>
+                        <p class="card-category">Complete your profile</p>
+                    </div>
+                    <div class="card-body">
+                        <form (ngSubmit)="onSubmit()" #heroform="ngForm">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <mat-form-field class="example-full-width">
+                                        <input matInput placeholder="Nome" [(ngModel)]="model.name" name="name" value="{{model.name}}">
+                                      </mat-form-field>
+                                </div>
+                                <div class="col-md-6">
+                                    <mat-form-field class="example-full-width">
+                                        <input matInput placeholder="Numero(opcional)" [(ngModel)]="model.number" name="number" value="{{model.number}}">
+                                      </mat-form-field>
+                                </div>
+                            </div>
+                            <div class="row" >
+                                <div class="col-md-6">
+                                  <mat-form-field>
+                                      <mat-select placeholder="Periodo" [(ngModel)]="model.period.id" name="period" value="{{model.period.id}}">
+                                        <mat-option *ngFor="let period of periods" [value]="period.id">
+                                          {{period.name}}
+                                        </mat-option>
+                                      </mat-select>
+                                    </mat-form-field>
+                                  </div>
+                                  <div class="col-md-6">
+                                    <mat-form-field>
+                                        <mat-select placeholder="Ano Lectivo" [(ngModel)]="model.year" name="year" value="{{model.year}}">
+                                          <mat-option *ngFor="let year of years" [value]="year">
+                                            {{year}}
+                                          </mat-option>
+                                        </mat-select>
+                                      </mat-form-field>
+                                    </div>
+                                    <div class="col-md-6">
+                                      <mat-form-field>
+                                          <mat-select placeholder="Classe" [(ngModel)]="model.grade.id" name="year" value="{{model.grade.id}}">
+                                            <mat-option *ngFor="let grade of grades" [value]="grade.id">
+                                              {{grade.number}}
+                                            </mat-option>
+                                          </mat-select>
+                                        </mat-form-field>
+                                      </div>
+
+                                    <div class="col-md-6">
+                                        <mat-form-field>
+                                            <mat-select placeholder="Sala" [(ngModel)]="model.room.id" name="room" value="{{model.room.id}}">
+                                              <mat-option *ngFor="let room of rooms" [value]="room.id">
+                                                {{room.number}}
+                                              </mat-option>
+                                            </mat-select>
+                                          </mat-form-field>
+                                        </div>
+                            </div>
+                            <button mat-raised-button="mat-raised-button" type="submit" class="btn btn-danger pull-right">Registar</button>
+                            <div class="clearfix"></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

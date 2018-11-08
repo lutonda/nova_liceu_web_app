@@ -1,0 +1,66 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header card-header-danger">
+                      <div class="col s6">
+                      <h4 class="card-title ">Turmas</h4>
+                        <p class="card-category"> Here is a subtitle for this table</p>
+                        </div>
+                        <div class="col s6">
+                            <a routerLink="/class/add" class="waves-effect waves-light btn right">
+                              <i class="material-icons left" style="margin: -6px 5px !important;
+                              margin-left: -10px !important">add </i> button</a>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead class=" text-primary">
+                                    <th>
+                                        Nome
+                                    </th>
+                                    <th>
+                                        Numero
+                                    </th>
+                                    <th>
+                                        Classe
+                                    </th>
+                                    <th>
+                                        Turno
+                                    </th>
+                                    <th>
+                                        
+                                    </th>
+                                </thead>
+                                <tbody *ngFor="let class of classes">
+                                        
+                                    <tr>
+                                        <td>
+                                            {{class.name}}
+                                        </td>
+                                        <td>
+                                            {{class.number}}
+                                        </td>
+                                        <td>
+                                            {{class.grade.number}}
+                                        </td>
+                                        <td>
+                                            {{class.period.name}}
+                                        </td>
+                                        <td class="text-primary">
+                                                <a [routerLink]="['/class/details/'+class.id]" routerLinkActive="router-link-active"  class="secondary-content"><i class="material-icons">send</i></a>
+                                        </td>
+                                    </tr>
+                                   
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+  
