@@ -1,6 +1,6 @@
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { DataService } from './services/data.service';
-import { MatInputModule } from '@angular/material';
+import { MatInputModule, MatAutocompleteModule } from '@angular/material';
 import { ApplicationModule } from './application/application.module';
 // import { UserService } from './services/user.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';

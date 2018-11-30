@@ -1,0 +1,216 @@
+<div class="main-content">
+    <div class="container-fluid">
+  
+      <div class="row">
+          <div class="col-md-4">
+              <div class="card card-profile">
+                  <div class="card-avatar">
+                      <a href="#pablo">
+                          <img class="img" src="../assets/img/faces/marc.jpg" />
+                      </a>
+                  </div>
+                  <div class="card-body">
+                      <h6 class="card-category text-gray">#{{student.code}}</h6>
+                      <h4 class="card-title">{{student.person.firstName}} {{student.person.lastName}}</h4>
+                      <p class="card-description">
+                          Don't be scared of the truth because we need to restart the human foundation in ...
+                      </p>
+                      <a href="#pablo" class="btn btn-danger btn-round">Follow</a>
+                  </div>
+              </div>
+          </div>
+        <div class="col-md-4">
+          <div class="card card-chart">
+            <div class="card-header card-header-success">
+              <div class="ct-chart" id="dailySalesChart"></div>
+            </div>
+            <div class="card-body">
+              <h4 class="card-title">Finanças</h4>
+              <p class="card-category">
+                <span class="text-success"><i class="fa fa-long-arrow-up"></i> 55% </span> increase in today sales.</p>
+            </div>
+            <div class="card-footer">
+              <div class="stats">
+                <i class="material-icons">access_time</i> updated 4 minutes ago
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card card-chart">
+            <div class="card-header card-header-danger">
+              <div class="ct-chart" id="completedTasksChart"></div>
+            </div>
+            <div class="card-body">
+              <h4 class="card-title">Aproveitamento</h4>
+              <p class="card-category">Last Campaign Performance</p>
+            </div>
+            <div class="card-footer">
+              <div class="stats">
+                <i class="material-icons">access_time</i> campaign sent 2 days ago
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+  
+        <div class="col-lg-12 col-md-12">
+          <div class="card">
+            
+            <div class="card-body table-responsive">
+                <mat-tab-group>
+                    <mat-tab label="Dados Pessoais">
+                    <table class="responsive-table">
+                      <tbody>
+                        <tr>
+                            <td>Nome Completo</td>{{student.person.firstName}} {{student.person.middleName}} {{student.person.lastName}}<td></td>
+                        </tr>
+                        <tr>
+                            <td>Sexo</td>{{student.person.sex.name}}<td></td>
+                        </tr>
+                        <tr>
+                            <td>Nº {{student.person.idCard.idCardType.name}}</td>{{student.person.idCard.number}}<td></td>
+                        </tr>
+                        <tr>
+                            <td>Data de Nascimento</td>-<td></td>
+                        </tr>
+                        <tr>
+                            <td>Nome Completo</td>{{student.person.firstName}} {{student.person.middleName}} {{student.person.lastName}}<td></td>
+                        </tr>
+                      </tbody>
+                    </table>  
+                    </mat-tab>
+                    <mat-tab label="Historico Financeiros">
+                      <table class="table table-hover">
+                        <thead class="text-warning">
+                          <th>Jan</th>
+                          <th>Fev</th>
+                          <th>Mar</th>
+                          <th>Abr</th>
+                          <th>Mai</th>
+                          <th>Jun</th>
+                          <th>Jul</th>
+                          <th>Ago</th>
+                          <th>Set</th>
+                          <th>Out</th>
+                          <th>Nov</th>
+                          <th>Dez</th>
+                          <th></th>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>-</td>
+                            </tr>
+                            <tr>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>-</td>
+                            </tr>
+                            <tr>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>-</td>
+                            </tr>
+                          
+                        </tbody>
+                      </table>
+                    </mat-tab>
+                    <mat-tab label="Historico Academicos">
+                        <table class="table table-hover">
+                            <thead class="text-warning">
+                              <tr>
+                                <th>-</th>
+                                <th colspan=5>1º Trimestre</th>
+                                <th colspan=5>2º Trimestre</th>
+                                <th colspan=5>3º Trimestre</th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                            </tr>
+                            <tr>
+                                <td>-</td>
+                                <td>OG</td>
+                                <td>CO</td>
+                                <td>CE</td>
+                                <td>EO</td>
+                                <td>EE</td>
+                                <td>OG</td>
+                                <td>CO</td>
+                                <td>CE</td>
+                                <td>EO</td>
+                                <td>EE</td>
+                                <td>OG</td>
+                                <td>CO</td>
+                                <td>CE</td>
+                                <td>EO</td>
+                                <td>EE</td>
+                                <td>To</td>
+                                <td>%</td>
+                                <td>Rs</td>
+                            </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Matemática</td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                </tr>
+                            </tbody>
+                          </table>
+                    </mat-tab>
+                  </mat-tab-group>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

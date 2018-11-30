@@ -1,0 +1,207 @@
+<div class="main-content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-9">
+        <div class="card">
+          <div class="card-header card-header-danger">
+            <h4 class="card-title">Registar Novo Aluno</h4>
+            <p class="card-category">Complete your profile</p>
+          </div>
+          <div class="card-body">
+            <form (ngSubmit)="onSubmit()" #heroform="ngForm">
+              <div class="row">
+                <div class="col-md-6">
+                  <mat-form-field class="example-full-width">
+                    <input
+                      matInput
+                      placeholder="Primeiro Nome"
+                      [(ngModel)]="model.person.firstName"
+                      name="firstName"
+                      value="{{model.person.firstName}}"
+                    />
+                  </mat-form-field>
+                </div>
+                <div class="col-md-6">
+                  <mat-form-field class="example-full-width">
+                    <input
+                      matInput
+                      placeholder="Último Nome"
+                      [(ngModel)]="model.person.lastName"
+                      name="lastName"
+                      value="{{model.person.lastName}}"
+                    />
+                  </mat-form-field>
+                </div>
+                <div class="col-md-6">
+                  <mat-form-field class="example-full-width">
+                    <input
+                      matInput
+                      placeholder="Último Nome"
+                      [(ngModel)]="model.person.middleName"
+                      name="middleName"
+                      value="{{model.person.middleName}}"
+                    />
+                  </mat-form-field>
+                </div>
+                <div class="col-md-6">
+                  <mat-form-field>
+                    <input
+                      matInput
+                      [matDatepicker]="myDatepicker"
+                      class="datepicker"
+                      materialize-date-picker
+                      matInput
+                      placeholder="Data de nascimento"
+                      [(ngModel)]="model.person.birthDate"
+                      name="birthDate"
+                      value="{{model.person.birthDate}}"/>
+                    <mat-datepicker-toggle
+                      matSuffix
+                      [for]="myDatepicker"
+                    ></mat-datepicker-toggle>
+                    <mat-datepicker #myDatepicker></mat-datepicker>
+                  </mat-form-field>
+                </div>
+                <div class="col-md-6" style="display: none">
+                        <mat-form-field class="example-full-width">
+                          <input
+                            class="datepicker"
+                            materialize-date-picker
+                            matInput
+                            placeholder="Data de nascimento"
+                            [(ngModel)]="model.person.birthDate"
+                            name="birthDate"
+                            value="{{model.person.birthDate}}"
+                          />
+                        </mat-form-field>
+                      </div>
+      
+                <div
+                class="col-md-12"
+                style="border-top:solid 1px #ddd; padding: 5px"></div>
+
+                <div class="col-md-6">
+                        <mat-form-field>
+                          <mat-select
+                            placeholder="Sexo"
+                            [(ngModel)]="model.person.sexid"
+                            name="period"
+                            value="{{model.person.sex.id}}">
+                            <mat-option *ngFor="let sex of sexs" [value]="sex.id">
+                              {{ sex.name }}
+                            </mat-option>
+                          </mat-select>
+                        </mat-form-field>
+                      </div>
+                      <div class="col-md-6">
+                            <mat-form-field>
+                                    <mat-select
+                                      placeholder="Naturalidade"
+                                      [(ngModel)]="model.person.birthPlaceid"
+                                      name="period"
+                                      value="{{model.person.birthPlace.id}}">
+                                      <mat-option *ngFor="let township of townships " [value]="township.id">
+                                            {{township.name}} 
+                                      </mat-option>
+                                    </mat-select>
+                                  </mat-form-field>
+                            
+                      </div>
+                <div class="col-md-6">
+                  <mat-form-field>
+                    <mat-select
+                      placeholder="Tipo de Documento de Identidade"
+                      [(ngModel)]="model.person.idCard.idCardTypeid"
+                      name="idCardType"
+                      value="{{model.person.idCard.idCardType.id}}">
+                      <mat-option
+                        *ngFor="let idCardType of idCardTypes"
+                        [value]="idCardType.id">
+                        {{ idCardType.name }}
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                </div>
+                <div class="col-md-6">
+                  <mat-form-field class="example-full-width">
+                    <input
+                      matInput
+                      placeholder="Numero do documento de Identificação"
+                      [(ngModel)]="model.person.idCard.number"
+                      name="lastName"
+                      value="{{model.person.idCard.number}}"
+                    />
+                  </mat-form-field>
+                </div>
+
+              <div
+              class="col-md-12"
+              style="border-top:solid 1px #ddd; padding: 5px"></div>
+
+              <div class="col-md-6">
+                    <mat-form-field class="example-full-width">
+                      <input
+                        matInput
+                        placeholder="Numero de Telefone"
+                        [(ngModel)]="model.person.contacts[0].description"
+                        name="telephone"
+                        value="{{model.person.contacts[0].descriptio}}"
+                      />
+                    </mat-form-field>
+                  </div>
+
+                  <div class="col-md-6">
+                        <mat-form-field class="example-full-width">
+                          <input
+                            matInput
+                            placeholder="E-mail (opcional)"
+                            [(ngModel)]="model.person.contacts[1].description"
+                            name="email"
+                            value="{{model.person.contacts[1].descriptio}}"
+                          />
+                        </mat-form-field>
+                      </div>
+                      <div class="col-md-6">
+                            <mat-form-field class="example-full-width">
+                              <input
+                                matInput
+                                placeholder="Endereço (Casa, Rua e Bairro)"
+                                [(ngModel)]="model.person.address.description"
+                                name="address"
+                                value="{{model.person.address.description}}"
+                              />
+                            </mat-form-field>
+                          </div>
+        
+                          <div class="col-md-6">
+                                
+                  <mat-form-field>
+                        <mat-select
+                          placeholder="Municipio"
+                          [(ngModel)]="model.person.address.townshipid"
+                          name="address_township"
+                          value="{{model.person.address.townshipid}}">
+                          <mat-option
+                            *ngFor="let township of townships"
+                            [value]="township.id">
+                            {{ township.name }}
+                          </mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                              </div>
+                </div>
+              <button
+                mat-raised-button="mat-raised-button"
+                type="submit"
+                class="btn btn-danger pull-right"
+              >
+                Registar
+              </button>
+              <div class="clearfix"></div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,6 +1,8 @@
-class Health {
-  id: string;
-  bloodGroup: BloodGroup;
-  specialCare: string;
-  allergies: string;
+export class Health {
+  public id: string;
+  public bloodGroup: BloodGroup;
+  public specialCare: string;
+  public allergies: string;
+
+  constructor() {}
 }

@@ -8,7 +8,7 @@
                         <p class="card-category">Complete your profile</p>
                     </div>
                     <div class="card-body">
-                        <form (ngSubmit)="onSubmit()" #heroform="ngForm">
+                        <form (ngSubmit)="onSubmit()" #heroform="ngForm" *ngIf="false" >
                             <div class="row">
                                 <div class="col-md-6">
                                     <mat-form-field class="example-full-width">
@@ -24,7 +24,7 @@
                             <div class="row" >
                                 <div class="col-md-6">
                                   <mat-form-field>
-                                      <mat-select placeholder="Periodo" [(ngModel)]="model.period.id" name="period" value="{{model.period.id}}">
+                                      <mat-select placeholder="Periodo" [(ngModel)]="model.periodId" name="period" value="{{model.period.id}}">
                                         <mat-option *ngFor="let period of periods" [value]="period.id">
                                           {{period.name}}
                                         </mat-option>
@@ -42,7 +42,7 @@
                                     </div>
                                     <div class="col-md-6">
                                       <mat-form-field>
-                                          <mat-select placeholder="Classe" [(ngModel)]="model.grade.id" name="year" value="{{model.grade.id}}">
+                                          <mat-select placeholder="Classe" [(ngModel)]="model.gradeId" name="year" value="{{model.grade.id}}">
                                             <mat-option *ngFor="let grade of grades" [value]="grade.id">
                                               {{grade.number}}
                                             </mat-option>
@@ -52,10 +52,23 @@
 
                                     <div class="col-md-6">
                                         <mat-form-field>
-                                            <mat-select placeholder="Sala" [(ngModel)]="model.room.id" name="room" value="{{model.room.id}}">
+                                            <mat-select placeholder="Sala" [(ngModel)]="model.roomId" name="room" value="{{model.room.id}}">
                                               <mat-option *ngFor="let room of rooms" [value]="room.id">
                                                 {{room.number}}
                                               </mat-option>
+                                            </mat-select>
+                                          </mat-form-field>
+                                        </div>
+                                        <div class="col-md-6">
+                                          <mat-form-field>
+                                            <mat-select placeholder="Diciplinas {{model.subjects.length}}" [(ngModel)]="model.subjects" [value]= "model.subjects" multiple>
+                                              <mat-select-trigger>
+                                                {{model.subjects.length > 1 ? model.subjects[0] : ''}}
+                                                <span *ngIf="model.subjects.length > 1" class="example-additional-selection">
+                                                  (+{{model.subjects.length - 1}} {{model.subjects?.length === 2 ? 'other' : 'others'}})
+                                                </span>
+                                              </mat-select-trigger>
+                                              <mat-option *ngFor="let subject of subjects" [value]="subject.id">{{subject.name}}</mat-option>
                                             </mat-select>
                                           </mat-form-field>
                                         </div>
@@ -63,6 +76,86 @@
                             <button mat-raised-button="mat-raised-button" type="submit" class="btn btn-danger pull-right">Registar</button>
                             <div class="clearfix"></div>
                         </form>
+                        <mat-horizontal-stepper labelPosition="bottom" #stepper>
+                          <mat-step [stepControl]="firstFormGroup">
+                              <form [formGroup]="firstFormGroup">
+                                  <ng-template matStepLabel>Fill out your name</ng-template>
+                                  <div>
+
+                                  <div class="col-md-6">
+                                        <mat-form-field class="example-full-width">
+                                            <input matInput placeholder="Nome" [(ngModel)]="model.name" name="name" value="{{model.name}}">
+                                          </mat-form-field>
+                                  </div>
+                                  <div class="col-md-6">
+                                        <mat-form-field class="example-full-width">
+                                            <input matInput placeholder="Numero(opcional)" [(ngModel)]="model.number" name="number" value="{{model.number}}">
+                                          </mat-form-field>
+                                  </div>
+                                  <div class="col-md-6">
+                                      <mat-form-field>
+                                          <mat-select placeholder="Periodo" [(ngModel)]="model.periodId" name="period" value="{{model.period.id}}">
+                                            <mat-option *ngFor="let period of periods" [value]="period.id">
+                                              {{period.name}}
+                                            </mat-option>
+                                          </mat-select>
+                                        </mat-form-field>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <mat-form-field>
+                                            <mat-select placeholder="Ano Lectivo" [(ngModel)]="model.year" name="year" value="{{model.year}}">
+                                              <mat-option *ngFor="let year of years" [value]="year">
+                                                {{year}}
+                                              </mat-option>
+                                            </mat-select>
+                                          </mat-form-field>
+                                    </div>
+                                    <div class="col-md-6">
+                                          <mat-form-field>
+                                              <mat-select placeholder="Classe" [(ngModel)]="model.gradeId" name="year" value="{{model.grade.id}}">
+                                                <mat-option *ngFor="let grade of grades" [value]="grade.id">
+                                                  {{grade.number}}
+                                                </mat-option>
+                                              </mat-select>
+                                            </mat-form-field>
+                                    </div>
+    
+                                    <div class="col-md-6">
+                                            <mat-form-field>
+                                                <mat-select placeholder="Sala" [(ngModel)]="model.roomId" name="room" value="{{model.room.id}}">
+                                                  <mat-option *ngFor="let room of rooms" [value]="room.id">
+                                                    {{room.number}}
+                                                  </mat-option>
+                                                </mat-select>
+                                              </mat-form-field>
+                                    </div>
+                                  </div>
+                                  <div>
+                                      <button mat-button matStepperNext class="btn btn-danger pull-right">Next</button>
+                                  </div>
+                              </form>
+                          </mat-step>
+                          <mat-step [stepControl]="secondFormGroup" optional>
+                              <form [formGroup]="secondFormGroup">
+                                  <ng-template matStepLabel>Fill out your address</ng-template>
+                                  <mat-form-field>
+                                      <input matInput placeholder="Address" formControlName="secondCtrl" required>
+                                  </mat-form-field>
+                                  <div>
+                                      <button mat-button matStepperPrevious>Back</button>
+                                      <button mat-button matStepperNext>Next</button>
+                                  </div>
+                              </form>
+                          </mat-step>
+                          <mat-step>
+                              <ng-template matStepLabel>Done</ng-template>
+                              You are now done.
+                              <div>
+                                  <button mat-button matStepperPrevious>Back</button>
+                                  <button mat-button (click)="stepper.reset()">Reset</button>
+                              </div>
+                          </mat-step>
+                      </mat-horizontal-stepper>
                     </div>
                 </div>
             </div>

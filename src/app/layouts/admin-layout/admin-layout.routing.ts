@@ -1,3 +1,4 @@
+import { DetailsStudentComponent } from './../../application/student/details-student/details-student.component';
 import { AddClassComponent } from 'app/application/class/add-class/add-class.component';
 import { ListClassComponent } from './../../application/class/list-class/list-class.component';
 import { Routes } from '@angular/router';
@@ -12,6 +13,7 @@ import { NotificationsComponent } from '../../notifications/notifications.compon
 import { UpgradeComponent } from '../../upgrade/upgrade.component';
 import { ClassComponent } from 'app/application/class/class.component';
 import { DetailsClassComponent } from 'app/application/class/details-class/details-class.component';
+import { AddStudentComponent } from '../../application/student/add-student/add-student.component';
 
 export const AdminLayoutRoutes: Routes = [
     // {
@@ -56,16 +58,18 @@ export const AdminLayoutRoutes: Routes = [
     //         component: UpgradeComponent
     //     }]
     // }
-    { path: 'class/list', component: ListClassComponent},
-    { path: 'class/add',     component: AddClassComponent},
-    { path: 'class/list', component: ListClassComponent},
-    { path: 'class/details/:id', component: DetailsClassComponent},
-    { path: 'dashboard',      component: DashboardComponent },
-    { path: 'user-profile',   component: UserProfileComponent },
-    { path: 'table-list',     component: TableListComponent },
-    { path: 'typography',     component: TypographyComponent },
-    { path: 'icons',          component: IconsComponent },
-    { path: 'maps',           component: MapsComponent },
-    { path: 'notifications',  component: NotificationsComponent },
-    { path: 'upgrade',        component: UpgradeComponent },
+    { path: 'class/list',          component: ListClassComponent},
+    { path: 'class/add',           component: AddClassComponent},
+    { path: 'class/list',          component: ListClassComponent},
+    { path: 'class/details/:id',   component: DetailsClassComponent},
+    { path: 'student/add/:id',     component: AddStudentComponent},
+    { path: 'student/details/:id', component: DetailsStudentComponent},
+    { path: 'dashboard',           component: DashboardComponent },
+    { path: 'user-profile',        component: UserProfileComponent },
+    { path: 'table-list',          component: TableListComponent },
+    { path: 'typography',          component: TypographyComponent },
+    { path: 'icons',               component: IconsComponent },
+    { path: 'maps',                component: MapsComponent },
+    { path: 'notifications',       component: NotificationsComponent },
+    { path: 'upgrade',             component: UpgradeComponent },
 ];
